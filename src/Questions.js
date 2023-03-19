@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Questions.css";
 
 export default function Questions() {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [showResults, setShowResults] = useState(false);
+  const [score, setScore] = useState(0);
+
   const questions = [
     {
       question: "What was the name of Ross's monkey?",
@@ -95,17 +99,45 @@ export default function Questions() {
     },
   ];
 
-  return (
-    <div className="Questions">
-      <div className="quiz-box">
-        <h3>Question 1/{questions.length}</h3>
-        <p>{questions[0].question}</p>
-        <div className="answer-options">
-          {questions[0].answers.map((answer) => (
-            <button>{answer.answer}</button>
-          ))}
+  const showNextQuestion = (isCorrect) => {
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setShowResults(true);
+    }
+  };
+
+  if (showResults) {
+    return (
+      <div className="Questions">
+        <div className="quiz-box">
+          <p className="score">
+            You scored {score}/{questions.length}
+          </p>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="Questions">
+        <div className="quiz-box">
+          <h3>
+            Question {currentQuestion + 1}/{questions.length}
+          </h3>
+          <p>{questions[currentQuestion].question}</p>
+          <div className="answer-options">
+            {questions[currentQuestion].answers.map((answerOption) => (
+              <button onClick={() => showNextQuestion(answerOption.isCorrect)}>
+                {answerOption.answer}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
