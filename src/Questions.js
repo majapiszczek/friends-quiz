@@ -99,6 +99,12 @@ export default function Questions() {
     },
   ];
 
+  const startAgain = () => {
+    setCurrentQuestion(0);
+    setShowResults(false);
+    setScore(0);
+  };
+
   const showNextQuestion = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
@@ -112,15 +118,31 @@ export default function Questions() {
   };
 
   if (showResults) {
-    return (
-      <div className="Questions">
-        <div className="quiz-box">
-          <p className="score">
-            You scored {score}/{questions.length}
-          </p>
+    if (score > 7) {
+      return (
+        <div className="Questions">
+          <div className="quiz-box">
+            <p className="score">
+              You scored {score}/{questions.length}
+            </p>
+            <p>Wow! You really are a true fan of Friends!</p>
+            <button onClick={startAgain}>Start again</button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="Questions">
+          <div className="quiz-box">
+            <p className="score">
+              You scored {score}/{questions.length}
+            </p>
+            <p>It could've been better.. Go watch more episodes!</p>
+            <button onClick={startAgain}>Start again</button>
+          </div>
+        </div>
+      );
+    }
   } else {
     return (
       <div className="Questions">
