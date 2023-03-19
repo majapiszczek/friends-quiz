@@ -1,0 +1,36 @@
+.Questions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+p {
+  margin: 40px;
+  font-size: 18px;
+}
+
+.Questions button {
+  padding: 20px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  background: rgb(206, 236, 244);
+  box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.5);
+  transition: all 150ms ease-in-out;
+}
+
+.Questions button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.answer-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
+  margin: 60px 0;
+}
