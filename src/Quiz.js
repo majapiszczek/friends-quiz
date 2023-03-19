@@ -1,4 +1,5 @@
 import React from "react";
+import "./Quiz.css";
 
 export default function Quiz() {
   const questions = [
@@ -94,5 +95,13 @@ export default function Quiz() {
     },
   ];
 
-  return "hello";
+  return (
+    <div className="Quiz">
+      <div className="quiz-box">
+        <h1>Are you REALLY a fun of Friends?</h1>
+        <h2>Find out by doing this quiz!</h2>
+        <button>Start Quiz</button>
+      </div>
+    </div>
+  );
 }
