@@ -46,7 +46,7 @@ export default function Questions() {
     {
       question: "Where was Ross and Emily's wedding?",
       answers: [
-        { answer: "Manchaster", isCorrect: false },
+        { answer: "Manchester", isCorrect: false },
         { answer: "New York", isCorrect: false },
         { answer: "London", isCorrect: true },
         { answer: "Chicago", isCorrect: false },
