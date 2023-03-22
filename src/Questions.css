@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: white;
 }
 
 h3 {
@@ -15,11 +16,12 @@ p {
 }
 
 .Questions button {
+  color: white;
   font-size: 18px;
   padding: 20px;
-  border: 2px solid #f8ca47;
+  border: 2px solid rgb(248, 202, 71);
   border-radius: 10px;
-  background-color: #6a5293;
+  background-color: rgb(106, 82, 147);
   box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.5);
   transition: all 150ms ease-in-out;
 }
